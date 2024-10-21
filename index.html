@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Happy Birthday!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <canvas id="fireworksCanvas"></canvas>
+  <div class="balloons">
+
+    <div class="balloon balloon1"></div>
+    <div class="balloon balloon2"></div>
+    <div class="balloon balloon3"></div>
+    <div class="balloon balloon4"></div>
+    <div class="balloon balloon5"></div>
+  </div>
+
+  <div class="container">
+    <h1>🎉 Happy Birthday, Trung Kiên! 🎉</h1>
+    <p class="message">🎉 Chúc Kiên có mọi thứ tốt đẹp nhất lên làm Pm đừng quên ae nhen :) Trung Kiên! 🎉</p>
+
+    <div>
+      <img src="Image.jpg" alt="Birthday Celebration">
+    </div>
+    <button class="wish-btn" id="wishBtn">Happy Birthday!</button>
+    <audio id="birthdaySong" src="happybirthday.mp3" preload="auto" loop></audio>
+  </div>
+  </div>
+
+
+  <h3 class="message">Thổi bóng đi nào nữa 😂😂😁 </h3>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.x/dist/index.umd.js"></script>
+  <script src="https://unpkg.com/fireworks-js@2.x/dist/index.umd.js"></script>
+  <script>
+    const canvas = document.getElementById('fireworksCanvas');
+    const fireworks = new Fireworks.default(canvas, {
+      autoresize: true,
+      opacity: 0.9,
+      trace: 3,
+      particles: 50,
+      delay: {
+        min: 30,
+        max: 60
+      },
+      rocketsPoint: {
+        min: 10,
+        max: 20
+      },
+      brightness: {
+        min: 50,
+        max: 80
+      },
+      decay: {
+        min: 0.015,
+        max: 0.03
+      },
+      mouse: {
+        click: false,
+        move: false,
+        max: 1
+      }
+    });
+    fireworks.start();
+    document.getElementById('wishBtn').addEventListener('click', function () {
+        const img = document.querySelector('img');
+        const audio = document.getElementById('birthdaySong');
+        fireworks.stop();
+        fireworks.start();
+        img.classList.toggle('show');
+        audio.play();
+    });
+  </script>
+</body>
+
+</html>
